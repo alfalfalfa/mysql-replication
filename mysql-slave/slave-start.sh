@@ -8,7 +8,10 @@ master_pass=${MYSQL_MASTER_ROOT_PASS}
 log_file=`mysql -u root -h master -e "SHOW MASTER STATUS\G" | grep File: | awk '{print $2}'`
 pos=`mysql -u root -h master -e "SHOW MASTER STATUS\G" | grep Position: | awk '{print $2}'`
 
+# echo "log_file: ${log_file}, pos:${pos}, master_pass:${master_pass}"
+
 export MYSQL_PWD=${MYSQL_ROOT_PASSWORD}
 mysql -u root -e "CHANGE MASTER TO MASTER_HOST='master', MASTER_USER='root', MASTER_PASSWORD='${master_pass}', MASTER_LOG_FILE='${log_file}', MASTER_LOG_POS=${pos};"
 mysql -u root -e "start slave"
 
+echo "slave start done."
