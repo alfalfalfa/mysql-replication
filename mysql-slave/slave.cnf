@@ -1,3 +1,4 @@
 [mysqld]
 log-bin=/var/log/mysql/bin-log
 server-id=2
+skip-name-resolve

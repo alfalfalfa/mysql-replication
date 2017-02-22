@@ -14,3 +14,7 @@ down:
 	docker-compose down
 logs:
 	docker-compose logs -f
+push:
+	#docker login
+	docker push alfalfalfa/mysql-master
+	docker push alfalfalfa/mysql-slave

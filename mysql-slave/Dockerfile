@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:latest
 
 MAINTAINER "alfalfalfa@gmail.com"
 
